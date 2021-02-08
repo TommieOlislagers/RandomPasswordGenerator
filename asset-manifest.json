@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TommieOlislagers/RandomPasswordGenerator/static/css/main.c38809b0.chunk.css",
+    "main.js": "/TommieOlislagers/RandomPasswordGenerator/static/js/main.068b4104.chunk.js",
+    "main.js.map": "/TommieOlislagers/RandomPasswordGenerator/static/js/main.068b4104.chunk.js.map",
+    "runtime-main.js": "/TommieOlislagers/RandomPasswordGenerator/static/js/runtime-main.8cc5b51e.js",
+    "runtime-main.js.map": "/TommieOlislagers/RandomPasswordGenerator/static/js/runtime-main.8cc5b51e.js.map",
+    "static/js/2.5cb924cc.chunk.js": "/TommieOlislagers/RandomPasswordGenerator/static/js/2.5cb924cc.chunk.js",
+    "static/js/2.5cb924cc.chunk.js.map": "/TommieOlislagers/RandomPasswordGenerator/static/js/2.5cb924cc.chunk.js.map",
+    "static/js/3.67b73001.chunk.js": "/TommieOlislagers/RandomPasswordGenerator/static/js/3.67b73001.chunk.js",
+    "static/js/3.67b73001.chunk.js.map": "/TommieOlislagers/RandomPasswordGenerator/static/js/3.67b73001.chunk.js.map",
+    "index.html": "/TommieOlislagers/RandomPasswordGenerator/index.html",
+    "static/css/main.c38809b0.chunk.css.map": "/TommieOlislagers/RandomPasswordGenerator/static/css/main.c38809b0.chunk.css.map",
+    "static/js/2.5cb924cc.chunk.js.LICENSE.txt": "/TommieOlislagers/RandomPasswordGenerator/static/js/2.5cb924cc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8cc5b51e.js",
+    "static/js/2.5cb924cc.chunk.js",
+    "static/css/main.c38809b0.chunk.css",
+    "static/js/main.068b4104.chunk.js"
+  ]
+}
