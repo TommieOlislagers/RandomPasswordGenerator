@@ -1,28 +1,6 @@
 import './Generator.css';
 import React from 'react';
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
-
-function Generate(PasswordLength, IncludeSpecialCharacters)
-{
-    const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numbers = "123456789";
-    const specialCharacters = "!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-    let password = "";
-
-    for(let i = 0; i < PasswordLength; i++)
-    {
-        let randomCharacter = IncludeSpecialCharacters === true ? getRandomInt(3) : getRandomInt(2);
-
-        password += randomCharacter === 0 ? alphabet[getRandomInt(alphabet.length)] : 
-        randomCharacter === 1 ? numbers[getRandomInt(numbers.length)] : 
-        randomCharacter === 2 ? specialCharacters[getRandomInt(specialCharacters.length)] : "";
-    }
-
-    return password;
-}
 
 class PasswordGenerator extends React.Component {
     constructor(props) {
@@ -32,13 +10,47 @@ class PasswordGenerator extends React.Component {
             length: 16,
             includeSpecialCharacters: true
         };
+
+        this.Generate = this.Generate.bind(this);
+        this.getRandomInt = this.getRandomInt.bind(this);
+    }
+
+    getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    Generate(PasswordLength, IncludeSpecialCharacters)
+    {
+        const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbers = "123456789";
+        const specialCharacters = "!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+        let password = "";
+
+        for(let i = 0; i < PasswordLength; i++)
+        {
+            let randomCharacter = IncludeSpecialCharacters === true ? this.getRandomInt(3) : this.getRandomInt(2);
+
+            password += randomCharacter === 0 ? alphabet[this.getRandomInt(alphabet.length)] : 
+            randomCharacter === 1 ? numbers[this.getRandomInt(numbers.length)] : 
+            randomCharacter === 2 ? specialCharacters[this.getRandomInt(specialCharacters.length)] : "";
+        }
+
+        return password;
+    }
+    
+    componentDidMount() {
+        window.addEventListener("load", () => this.setState({ password: this.Generate(this.state.length, this.state.includeSpecialCharacters) }));
+    }
+    
+    componentWillUnmount() { 
+        window.removeEventListener("load", () => this.setState({ password: this.Generate(this.state.length, this.state.includeSpecialCharacters) }));  
     }
 
     checkboxChanged = () => {
         this.setState({
             includeSpecialCharacters: !this.state.includeSpecialCharacters,
         });
-      }
+    }
 
     render() {
         return(
@@ -50,7 +62,7 @@ class PasswordGenerator extends React.Component {
                 </p>
                 <p className="text-white">Include special characters
                 <input type="checkbox" defaultChecked={this.state.includeSpecialCharacters} onChange={this.checkboxChanged} className="checkbox-special-characters-generator"></input></p>
-                <button className="button-generator" onClick={() => this.setState({ password: Generate(this.state.length, this.state.includeSpecialCharacters) })}>Generate</button>
+                <button className="button-generator" onClick={() => this.setState({ password: this.Generate(this.state.length, this.state.includeSpecialCharacters) })}>Generate</button>
                 <hr/>
                 <pre className="password-generator text-white" ><span className="unselectable">Password: </span><span className="password-span-generator">{this.state.password}</span> <i onClick={() => {navigator.clipboard.writeText(this.state.password)}} className="fa fa-clipboard clipboard-generator" aria-hidden="true"></i></pre>
             </div>

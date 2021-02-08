@@ -46,7 +46,7 @@ function App() {
       <footer className="container-fluid py-4 w-100 bg-black text-white">
           <div className="container">
               <div className="text-center">
-                  <div className="px-1">© 2020 Tommie Olislagers - All rights reserved.</div>
+                  <div className="px-1">© {new Date().getFullYear()} Tommie Olislagers - All rights reserved.</div>
               </div>
           </div>
       </footer>
